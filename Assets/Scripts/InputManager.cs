@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerMovement : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     public UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
     public UnityEvent OnSpacePressed = new UnityEvent();
@@ -13,17 +13,19 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.W)) {
+        Vector2 input = Vector2.zero;
+        if(Input.GetKey(KeyCode.W)) {
 
         }
-        if(Input.GetKeyDown(KeyCode.S)) {
+        if(Input.GetKey(KeyCode.S)) {
             
         }
-        if(Input.GetKeyDown(KeyCode.A)) {
-            
+        if(Input.GetKey(KeyCode.A)) {
+            input += Vector2.left;
         }
-        if(Input.GetKeyDown(KeyCode.D)) {
-            
+        if(Input.GetKey(KeyCode.D)) {
+            input += Vector2.right;
         }
+        OnMove?.Invoke(input);
     }
 }
