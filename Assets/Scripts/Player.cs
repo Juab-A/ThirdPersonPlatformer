@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void MovePlayer(Vector2 direction) {
-        Vector3 moveDirection = new (direction.x, 0f, direction.y);
-        rb.AddForce(moveDirection * speed);
+    private void MovePlayer(Vector3 direction) {
+        Vector3 moveDirection = direction;
+        rb.AddForce(moveDirection * speed); //Adjust to be relative to the camera
     }
 }
