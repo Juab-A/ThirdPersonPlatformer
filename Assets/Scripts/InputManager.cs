@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private CinemachineCamera cinemachineCamera;
     public UnityEvent<Vector3> OnMove = new UnityEvent<Vector3>();
     public UnityEvent OnSpacePressed = new UnityEvent();
+    public UnityEvent<Vector3> OnShiftPressed = new UnityEvent<Vector3>();
     private Transform transformCamera;
 
     void Start()
@@ -17,6 +18,8 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if(Input.GetKeyDown(KeyCode.Space)) {
             OnSpacePressed?.Invoke();
         }
@@ -40,5 +43,9 @@ public class InputManager : MonoBehaviour
             input += flatRight;
         }
         OnMove?.Invoke(input);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            OnShiftPressed?.Invoke(flatForward);
+        }
     }
 }

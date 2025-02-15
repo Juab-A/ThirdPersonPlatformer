@@ -2,6 +2,7 @@ using UnityEngine;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using System.Numerics;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxSpeed = 10f;
     [SerializeField] private float jumpForce = 20f;
     [SerializeField] private float gravityMultiplier = 10f;
+    [SerializeField] private float dashSpeed = 25f;
+    [SerializeField] private float dashTime = 5f;
     [SerializeField] CinemachineCamera cinemachineCamera;
 
     private bool isGrounded;
@@ -23,6 +26,7 @@ public class Player : MonoBehaviour
 
         inputManager.OnSpacePressed.AddListener(Jump);
         inputManager.OnMove.AddListener(MovePlayer);
+        inputManager.OnShiftPressed.AddListener(Dash);
 
         rb = GetComponent<Rigidbody>();
     }
@@ -69,11 +73,27 @@ public class Player : MonoBehaviour
             rb.AddForce(UnityEngine.Vector3.up * jumpForce, ForceMode.VelocityChange);
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) {
             isGrounded = true;
             canDoubleJump = true;
+        }
+    }
+
+    private void Dash(UnityEngine.Vector3 direction) {
+        //Debug.Log("Dash");
+        StartCoroutine(ActualDash(direction));
+        rb.AddForce(direction.normalized * dashSpeed, ForceMode.Acceleration);
+    }
+
+    private IEnumerator ActualDash(UnityEngine.Vector3 direction) {
+        float startTime = Time.time;
+
+        while (Time.time < startTime + dashTime) {
+            rb.AddForce(direction.normalized * dashSpeed, ForceMode.Acceleration);
+
+            yield return null;
         }
     }
 }

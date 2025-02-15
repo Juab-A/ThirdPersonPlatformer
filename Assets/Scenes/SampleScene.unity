@@ -387,6 +387,9 @@ MonoBehaviour:
   OnSpacePressed:
     m_PersistentCalls:
       m_Calls: []
+  OnShiftPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &65237699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2070,6 +2073,8 @@ MonoBehaviour:
   maxSpeed: 10
   jumpForce: 30
   gravityMultiplier: 10
+  dashSpeed: 100
+  dashTime: 0.25
   cinemachineCamera: {fileID: 185847221}
 --- !u!54 &1481942601
 Rigidbody:
