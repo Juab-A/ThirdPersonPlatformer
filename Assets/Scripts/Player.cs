@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private float speed;
     [SerializeField] private float maxSpeed = 10f;
-    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float jumpForce = 20f;
     [SerializeField] private float gravityMultiplier = 10f;
     [SerializeField] CinemachineCamera cinemachineCamera;
 
