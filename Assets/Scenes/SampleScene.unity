@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5d8d46b9c1e9c4da0bb65ebbeceb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 185847221}
   OnMove:
     m_PersistentCalls:
       m_Calls: []
@@ -260,10 +261,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a076c17fe76165e4f8ed21498b877bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Modifiers: []
+  Modifiers:
+  - rid: 9061766151166492736
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 9061766151166492736
+      type: {class: CinemachineFreeLookModifier/PositionDampingModifier, ns: Unity.Cinemachine, asm: Unity.Cinemachine}
+      data:
+        Damping:
+          Top: {x: 1, y: 1, z: 1}
+          Bottom: {x: 1, y: 1, z: 1}
 --- !u!114 &185847219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,22 +316,22 @@ MonoBehaviour:
   TargetOffset: {x: 0, y: 0, z: 0}
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
   OrbitStyle: 1
-  Radius: 10
+  Radius: 3.5
   Orbits:
     Top:
-      Radius: 2
-      Height: 5
+      Radius: 7.5
+      Height: 3
     Center:
-      Radius: 4
-      Height: 2.25
+      Radius: 7.5
+      Height: 1
     Bottom:
-      Radius: 2.5
-      Height: 0.1
+      Radius: 7.5
+      Height: 0.5
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
@@ -407,8 +415,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185847216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25340128, y: 0.000000014123878, z: -0.0000000036997647, w: 0.9673613}
-  m_LocalPosition: {x: 0, y: 3.13, z: -4}
+  m_LocalRotation: {x: 0.066227265, y: 0.0000000020696056, z: -1.3736587e-10, w: 0.9978046}
+  m_LocalPosition: {x: 0, y: 1.88, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -501,8 +509,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25340128, y: 0.000000014123878, z: -0.0000000036997645, w: 0.9673613}
-  m_LocalPosition: {x: 0, y: 3.13, z: -4}
+  m_LocalRotation: {x: 0.066227265, y: 0.0000000020696056, z: -1.373659e-10, w: 0.9978046}
+  m_LocalPosition: {x: 0, y: 1.88, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -731,7 +739,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444616498}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ab59b5b4e5dc2ef4f94dcc6aa5403942, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1081,7 +1089,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 65237698}
-  speed: 10
+  speed: 1
+  maxSpeed: 10
+  cinemachineCamera: {fileID: 185847221}
 --- !u!54 &1481942601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1091,7 +1101,7 @@ Rigidbody:
   m_GameObject: {fileID: 1481942598}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
