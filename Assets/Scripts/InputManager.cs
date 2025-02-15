@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)) {
-
+            OnSpacePressed?.Invoke();
         }
 
         Vector3 input = Vector3.zero;

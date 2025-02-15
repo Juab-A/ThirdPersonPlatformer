@@ -416,7 +416,7 @@ Transform:
   m_GameObject: {fileID: 185847216}
   serializedVersion: 2
   m_LocalRotation: {x: 0.066227265, y: 0.0000000020696056, z: -1.3736587e-10, w: 0.9978046}
-  m_LocalPosition: {x: 0, y: 1.88, z: -7.5}
+  m_LocalPosition: {x: 0, y: 2.44, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -510,7 +510,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.066227265, y: 0.0000000020696056, z: -1.373659e-10, w: 0.9978046}
-  m_LocalPosition: {x: 0, y: 1.88, z: -7.5}
+  m_LocalPosition: {x: 0, y: 2.44, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 444616501}
   - component: {fileID: 444616500}
   - component: {fileID: 444616499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1069,7 +1069,7 @@ Transform:
   m_GameObject: {fileID: 1481942598}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.88, z: 0}
+  m_LocalPosition: {x: 0, y: 1.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1091,6 +1091,8 @@ MonoBehaviour:
   inputManager: {fileID: 65237698}
   speed: 1
   maxSpeed: 10
+  jumpForce: 10
+  gravityMultiplier: 3
   cinemachineCamera: {fileID: 185847221}
 --- !u!54 &1481942601
 Rigidbody:
